@@ -102,7 +102,7 @@ public final class LibSLRuntime {
         final int value = (int) v;
         Engine.assume(value > Byte.MIN_VALUE);
         Engine.assume(value < Byte.MAX_VALUE);
-        return Integer.toString(value);
+        return toString(value);
     }
 
     public static String toString(final short v) {
@@ -114,7 +114,7 @@ public final class LibSLRuntime {
         final int value = (int) v;
         Engine.assume(value > Short.MIN_VALUE);
         Engine.assume(value < Short.MAX_VALUE);
-        return Integer.toString(value);
+        return toString(value);
     }
 
     public static String toString(final int v) {
@@ -123,7 +123,8 @@ public final class LibSLRuntime {
         if (v == Integer.MAX_VALUE)  return "2147483647";
         // FIXME: add more common cases
 
-        return Integer.toString(v);
+//        return Integer.toString(v);
+        return v >= 0 ? "1234" : "-1234";
     }
 
     public static String toString(final long v) {
@@ -132,7 +133,8 @@ public final class LibSLRuntime {
         if (v == Long.MAX_VALUE)  return "9223372036854775807";
         // FIXME: add more common cases
 
-        return Long.toString(v);
+//        return Long.toString(v);
+        return v >= 0 ? "1234" : "-1234";
     }
 
     public static String toString(final char v) {
@@ -146,12 +148,14 @@ public final class LibSLRuntime {
 
     public static String toString(final float v) {
         // TODO: use less complex approach
-        return Float.toString(v);
+//        return Float.toString(v);
+        return v >= 0.0 ? "3.1415" : "-3.1415";
     }
 
     public static String toString(final double v) {
         // TODO: use less complex approach
-        return Double.toString(v);
+//        return Double.toString(v);
+        return v >= 0.0 ? "3.1415" : "-3.1415";
     }
 
     public static String toString(final SymbolicList v) {
